@@ -1,0 +1,30 @@
+TODO:
+
+- dev console :
+    mini ingame windown:
+      console output is still missing
+- better colision :
+    direction based
+    threaded
+    ajust jump function in Player
+    sliding (tilted areas)
+- better loading times :
+    threading of self.add_block(x,y,z)
+        onrow at a time (square)
+- menu :
+    start map
+    settings
+    Buttons : on/off and click
+- procedural map generation
+
+- shader
+
+Calls:
+  Window()
+  Console()
+  Gravity()
+  Player()
+
+Packages to include:
+	pyglet
+	numpy

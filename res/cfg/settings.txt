@@ -1,0 +1,13 @@
+sensitivity 1.5
+mouse 1
+reswidth 1920.0
+resheight 1080.0
+maxrenderdist 1000.0
+soundvol 1.0
+fov 103.0
+max_fps 144.0
+show_fps 1.0
+walking 1.0
+gravity 0.02
+console -1
+kill 0
