@@ -28,3 +28,7 @@ Calls:
 Packages to include:
 	pyglet
 	numpy
+  pyinstaller
+
+create runnable package:
+  pyinstaller --noconsole main.py -F
