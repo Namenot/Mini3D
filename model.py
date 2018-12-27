@@ -53,8 +53,6 @@ class Model():
         self.run()
 
     def run(self):
-        pass
-
         x,y,z = 0,0,0
         while(x < 100):
             while(y < 100):

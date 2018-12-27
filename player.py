@@ -24,7 +24,6 @@ class Player:
         elif self.rot[0] < -90: self.rot[0] = -90
 
     def jump(self):
-
         self.jumpenable = -1
         self.speed      = 0
 
@@ -41,6 +40,7 @@ class Player:
 
         if self.jumpenable:
             self.pos[1] += self.s*self.sens * self.speed
+
 
     def update(self, dt, keys):
         self.sens = self.d['walking']                                                                                #movement speed

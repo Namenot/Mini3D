@@ -18,9 +18,10 @@ class Console:
         self.apply    = -1
         self.command  = ''
 
-        self.cmd_lable = pyglet.text.Label('')
-        self.fps_lable = pyglet.text.Label('')
-        self.pic       = self.ui()
+        self.cmd_lable   = pyglet.text.Label('')
+        self.fps_lable   = pyglet.text.Label('')
+        self.pic         = pyglet.graphics.Batch()
+        self.ui()
 
     def inp(self, key):
         self.key = key
@@ -63,18 +64,16 @@ class Console:
 
         self.cmd_lable   = pyglet.text.Label(self.currentcmd, font_size=16, color=(255, 255, 255, 255),x=520, y=35, anchor_x='left', anchor_y='top')
 
+    def get_tex(self, file):
+        tex = pyglet.image.load(file).texture
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+        return pyglet.graphics.TextureGroup(tex)
+
+
     def ui(self, path = 'res/tex/cmd.png'):
-        pic_png = pyglet.image.load(path)
-
-        h,w = 1080, 1920
-
-        pic_png.width  = w
-        pic_png.height = h
-
-        self.pic         = pyglet.sprite.Sprite(pic_png, 500, 0)
-        self.pic.opacity = 0
-
-        return self.pic
+        self.pic_png = self.get_tex(path)
+        self.pic.add(4, GL_QUADS, self.pic_png, ('v2f', [500,1080, 500,0, 1920,0, 1920,1080] ))
 
     def execute(self, inp):
         list  = inp.split()

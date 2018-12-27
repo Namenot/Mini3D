@@ -66,8 +66,6 @@ class Window(pyglet.window.Window):
 
     def on_key_press(self, KEY, mod):
         if KEY == 65307:  return pyglet.event.EVENT_HANDLED                     #ESCAPE
-        #if KEY == 32:
-            #self.player.jump(self.model.map, self.player.pos)
         else:
             self.console.inp(KEY)
 
@@ -90,8 +88,8 @@ class Window(pyglet.window.Window):
         self.set2d()
         glDisable(GL_DEPTH_TEST)
         self.console.fps_lable.draw()
-        self.console.pic.draw()
         self.console.cmd_lable.draw()
         self.console.fps_lable.draw()
+        self.console.pic.draw()
 
         glPopMatrix()
