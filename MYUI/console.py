@@ -50,9 +50,9 @@ class Console:
 
 
         if self.toggle == 1:
-            self.pic.opacity = 155
+            self.c.colors = [0,0,0,155]*4
         else:
-            self.pic.opacity = 0
+            self.c.colors = [0,0,0,0]*4
             self.currentcmd = ''
         if self.apply == 1 and self.toggle ==1:
             self.execute(self.currentcmd[:-1])
@@ -63,6 +63,7 @@ class Console:
         self.settings.d['console'] = self.toggle
 
         self.cmd_lable   = pyglet.text.Label(self.currentcmd, font_size=16, color=(255, 255, 255, 255),x=520, y=35, anchor_x='left', anchor_y='top')
+        #self.cmd_lable = pyglet.text.Label("HALLO", font_size=9, color=(180, 255, 0, 255),x=500, y=250, anchor_x='left', anchor_y='top')
 
     def get_tex(self, file):
         tex = pyglet.image.load(file).texture
@@ -72,8 +73,12 @@ class Console:
 
 
     def ui(self, path = 'res/tex/cmd.png'):
+        ocp = int(155)
         self.pic_png = self.get_tex(path)
-        self.pic.add(4, GL_QUADS, self.pic_png, ('v2f', [500,1080, 500,0, 1920,0, 1920,1080] ))
+        self.c = self.pic.add(4, GL_QUADS, self.pic_png, ('v2f', [500,1080, 500,0, 1920,0, 1920,1080] ),
+                                                ('c4B/dynamic', [0,0,0, ocp]*4))
+
+
 
     def execute(self, inp):
         list  = inp.split()
@@ -95,14 +100,14 @@ class Console:
 
 
     def chat(self):
-        if self.command.split()[0] == "show_fps":
+        if self.command.split()[0] == "showfps":
             self.FPS()
 
     def FPS(self):
 
         pyglet.clock.set_fps_limit(10)
 
-        if self.d['show_fps'] == 1:
+        if self.d['showfps'] == 1:
             self.fps_lable = pyglet.text.Label('{:.1f} fps'.format(pyglet.clock.get_fps()), font_size=9, color=(180, 255, 0, 255),x=10, y=1070, anchor_x='left', anchor_y='top')
 
         else:

@@ -5,8 +5,8 @@ resheight 1080.0
 maxrenderdist 1000.0
 soundvol 1.0
 fov 103.0
-max_fps 144.0
-show_fps 1.0
+maxfps 144.0
+showfps 1.0
 walking 1.0
 gravity 0.02
 console -1

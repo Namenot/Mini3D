@@ -45,7 +45,7 @@ class Window(pyglet.window.Window):
         self.keys = key.KeyStateHandler()
         self.push_handlers(self.keys)
 
-        clock.schedule_interval(self.update, 1/self.d['max_fps'])
+        clock.schedule_interval(self.update, 1/self.d['maxfps'])
 
         self.grav      = grav.Gravity(self.d,(0,0,0))
         self.model     = mod.Model()
@@ -87,9 +87,8 @@ class Window(pyglet.window.Window):
 
         self.set2d()
         glDisable(GL_DEPTH_TEST)
+        self.console.pic.draw()
         self.console.fps_lable.draw()
         self.console.cmd_lable.draw()
-        self.console.fps_lable.draw()
-        self.console.pic.draw()
 
         glPopMatrix()

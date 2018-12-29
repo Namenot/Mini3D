@@ -6,7 +6,6 @@ TODO:
 - better colision :
     direction based
     threaded
-    ajust jump function in Player
     sliding (tilted areas)
 - better loading times :
     threading of self.add_block(x,y,z)
@@ -17,6 +16,8 @@ TODO:
     Buttons : on/off and click
 - procedural map generation
 
+FUTUR:
+- AI
 - shader
 
 Calls:
