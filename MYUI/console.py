@@ -23,6 +23,8 @@ class Console:
         self.pic         = pyglet.graphics.Batch()
         self.ui()
 
+        self.cmdlist = []
+
     def inp(self, key):
         self.key = key
 
@@ -62,11 +64,10 @@ class Console:
 
         self.settings.d['console'] = self.toggle
 
-        self.cmd_lable   = pyglet.text.Label(self.currentcmd, font_size=16, color=(255, 255, 255, 255),x=520, y=35, anchor_x='left', anchor_y='top')
-        #self.cmd_lable = pyglet.text.Label("HALLO", font_size=9, color=(180, 255, 0, 255),x=500, y=250, anchor_x='left', anchor_y='top')
+        self.cmd_lable   = pyglet.text.Label(self.currentcmd, font_size=16, color=(255, 255, 255, 255),x=520, y=35,dpi=96, anchor_x='left', anchor_y='top')
 
     def get_tex(self, file):
-        tex = pyglet.image.load(file).texture
+        tex = pyglet.image.load(file).get_texture()
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
         return pyglet.graphics.TextureGroup(tex)
@@ -81,6 +82,9 @@ class Console:
 
 
     def execute(self, inp):
+        if inp != "":
+            self.cmdlist.append(inp)
+
         list  = inp.split()
         num   = 0
 
@@ -105,10 +109,10 @@ class Console:
 
     def FPS(self):
 
-        pyglet.clock.set_fps_limit(10)
+        #pyglet.clock.showfps = True
 
         if self.d['showfps'] == 1:
-            self.fps_lable = pyglet.text.Label('{:.1f} fps'.format(pyglet.clock.get_fps()), font_size=9, color=(180, 255, 0, 255),x=10, y=1070, anchor_x='left', anchor_y='top')
+            self.fps_lable = pyglet.text.Label('{:.0f} fps'.format(int(pyglet.clock.get_fps())), font_size=9, color=(180, 255, 0, 255),x=10, y=1070, anchor_x='left', anchor_y='top')
 
         else:
             self.fps_lable = pyglet.text.Label('')

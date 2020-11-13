@@ -4,8 +4,9 @@ reswidth 1920.0
 resheight 1080.0
 maxrenderdist 1000.0
 soundvol 1.0
-fov 103.0
+fov 103
 maxfps 144.0
+tickrate 128
 showfps 1.0
 walking 1.0
 gravity 0.02

@@ -7,7 +7,7 @@ import numpy as np
 import model as mod
 import player as ply
 from MYUI import settings as sets
-import window as win
+import old_window as win
 
 class Gravity:
 

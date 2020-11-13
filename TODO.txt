@@ -2,7 +2,7 @@ TODO:
 
 - dev console :
     mini ingame windown:
-      console output is still missing
+      console output is still missing (self.cmdlist is contains the cmd history )
 - better colision :
     direction based
     threaded

@@ -13,10 +13,12 @@ import window as win
 
 if __name__ == '__main__':
 
-    settings = sets.Settings()
+    settings = sets.Settings("res/cfg/settings.txt")
 
-    window = win.Window(settings, int(settings.d['reswidth']), int(settings.d['resheight']), caption='Cube Test', resizable = False, fullscreen=True)
-    glClearColor(0.5,0.7,1,1)
+    window = win.Window(settings, int(settings.d['reswidth']), int(settings.d['resheight']), caption='Cube Test',
+                                        resizable = False, fullscreen=True)
+    window.set_exclusive_mouse()
+    glClearColor(0.5, 0.7, 1, 1)
 
     #---------------------3D-------------------------
     glEnable(GL_CULL_FACE)

@@ -6,11 +6,14 @@ import numpy as np
 
 class Settings:
 
-    def __init__(self):
+    def __init__(self, s=''):
         self.d = {}
-        self.s = "res/cfg/settings.txt"
+        self.s = s
         self.loadSettings()
-        self.d['kill'] = 0
+        try:
+            self.d['kill'] = 0
+        except:
+            print("'kill' does not exist in this config file")
 
 
     def loadSettings(self):

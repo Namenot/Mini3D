@@ -22,6 +22,8 @@ class Generator:
         #self.player = player
         self.maxdim = 0
 
+        self.polygons = []
+
 
         #clock.schedule(self.test)
 
@@ -36,13 +38,9 @@ class Generator:
             k = 0
         return self.mp
 
-    def load(self):
-        pass
-        '''
-        self.maxdim = 3
-        while x
-        self.model.add_block()
-        '''
+    def load(self, path = 'map/testmap.mp'):
+
+        fp = open(path, 'r')
 
 '''
 TODO:

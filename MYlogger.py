@@ -11,8 +11,8 @@ class logger:
         self.log += ">"
 
     def lgn(self, str):
-        self.log +="\n"
-        self.log +=str
+        self.log += "\n"
+        self.log += str
 
     def savelog(self):
         fp = open("res/logs/log.txt", "a")
